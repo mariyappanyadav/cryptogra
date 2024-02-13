@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traditional Cryptography: Explore & Encrypt</title>
+  <style>
+    /* Resetting default margin and padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    /* Setting up background and font styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      background-image: url('ty.gif'); /* Replace 'your-image.jpg' with the path to your image */
+     background-size: cover; /* Cover the entire background */
+     background-position: center; /* Center the background image */
+      background-repeat: no-repeat; /* Do not repeat the background image */
+}
+    
+    
+    /* Header styles */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    
+    header p {
+      font-size: 1rem;
+    }
+    
+    /* Main content styles */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Cipher section styles */
+    div {
+      background-color: #fff;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      padding: 20px;
+    }
+    
+    /* Form styles */
+    form {
+      margin-bottom: 10px;
+    }
+    
+    form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    form input[type="text"],
+    form input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    form input[type="radio"] {
+      margin-right: 10px;
+    }
+    
+    form button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    form button:hover {
+      background-color: #555;
+    }
+    
+    /* Result paragraph styles */
+    p span {
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Traditional Cryptography: Explore & Encrypt</h1>
+    <p>Discover the fascinating world of traditional ciphers and encrypt/decrypt your messages!</p>
+  </header>
+  <main>
+    <div id="caesarSection">
+      <!-- Caesar Cipher -->
+      <h2>Caesar Cipher</h2>
+      <p> The Caesar Cipher is one of the simplest and earliest known substitution ciphers. It operates by shifting each letter in the plaintext by a fixed number of positions down or up the alphabet. For instance, with a shift of 3, 'A' would become 'D', 'B' would become 'E', and so forth. This method of encryption falls under the category of monoalphabetic substitution ciphers, where each letter is consistently replaced by another letter throughout the message.</p>
+      <form class="caesarCipher" id="caesarForm">
+        <label for="caesarTextInput">Plaintext:</label>
+        <input type="text" id="caesarTextInput" placeholder="Enter your message" required />
+        <label for="caesarKeyInput">Key (Shift Amount):</label>
+        <input type="number" id="caesarKeyInput" min="1" max="25" placeholder="1-25" required />
+        <input type="radio" id="caesarEncrypt" name="caesarAction" value="encrypt" checked>
+        <label for="caesarEncrypt">Encrypt</label>
+        <input type="radio" id="caesarDecrypt" name="caesarAction" value="decrypt">
+        <label for="caesarDecrypt">Decrypt</label>
+        <button type="submit">Submit</button>
+        <p><span id="caesarResult"></span></p>
+      </form>
+    </div>
+    <div id="railFenceSection">
+      <!-- Rail Fence Cipher -->
+      <h2>Rail Fence Cipher</h2>
+      <p> The Rail Fence Cipher, a type of transposition cipher, reorganizes the plaintext characters by writing them in a zigzag pattern across multiple "rails" or lines, followed by reading off the ciphertext from the lines in a specific order. For example, if the plaintext is "HELLO WORLD" and there are three rails, the ciphertext might appear as "HLOOL ELWRD". Despite being relatively simple and historical, the Rail Fence Cipher can provide basic encryption.</p>
+      <form class="railfence" id="railfenceForm">
+        <label for="railfenceTextInput">Plaintext:</label>
+        <input type="text" id="railfenceTextInput" placeholder="Enter your message" required />
+        <label for="railfenceKeyInput">Number of Rails:</label>
+        <input type="number" id="railfenceKeyInput" min="2" max="10" placeholder="2-10" required />
+        <input type="radio" id="railfenceEncrypt" name="railfenceAction" value="encrypt" checked>
+        <label for="railfenceEncrypt">Encrypt</label>
+        <input type="radio" id="railfenceDecrypt" name="railfenceAction" value="decrypt">
+        <label for="railfenceDecrypt">Decrypt</label>
+        <button type="submit">Submit</button>
+        <p><span id="railfenceResult"></span></p>
+      </form>
+    </div>
+    <div id="hillSection">
+      <!-- Hill Cipher -->
+      <h2>Hill Cipher</h2>
+      <p> The Hill Cipher is a more complex polyalphabetic substitution cipher that employs matrix multiplication for encryption. It operates by converting the plaintext into blocks, which are then multiplied by a key matrix to produce the ciphertext. The key matrix is usually generated from a keyword or passphrase provided by the user. Unlike the Caesar and Rail Fence ciphers, the Hill Cipher provides stronger encryption due to its mathematical complexity and ability to handle multiple letters at once. However, it requires careful key management and may be more challenging to implement.</p>
+      <form class="hillcipher" id="hillcipherForm">
+        <label for="hillTextInput">Plaintext:</label>
+        <input type="text" id="hillTextInput" placeholder="Enter your message" required />
+        <label for="hillKeyInput">Key (Matrix Elements):</label>
+        <input type="text" id="hillKeyInput" placeholder="Enter key matrix elements" required />
+        <input type="radio" id="hillEncrypt" name="hillAction" value="encrypt" checked>
+        <label for="hillEncrypt">Encrypt</label>
+        <input type="radio" id="hillDecrypt" name="hillAction" value="decrypt">
+        <label for="hillDecrypt">Decrypt</label>
+        <button type="submit">Submit</button>
+        <p><span id="hillcipherResult"></span></p>
+      </form>
+    </div>
+  </main>
+  <script src="sci.js" type="module"></script>
+</body>
+</html>
